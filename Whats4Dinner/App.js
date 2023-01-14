@@ -22,15 +22,7 @@ export default function App() {
 
 
 
-const dayContainer = StyleSheet.create({
-  container: {
-    flex: 0.25,
-    backgroundColor: 'dodgerblue',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  
-});
+
 
 const days = StyleSheet.create({
   container:  {
