@@ -1,13 +1,57 @@
 import { NavigationContainer } from '@react-navigation/native';
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableHighlight, Alert } from 'react-native';
+import DialogInput from "react-native-dialog"
+
+
+
+// // Creating a screen stack
+// const Stack = createNativeStackNavigator();
+
+// const screenNavigator = () => {
+//   return (
+//     <NavigationContainer>
+//       <Stack.Navigator>
+//         <Stack.Screen
+//         name="Main"
+//         component={HomeScreen}
+//         optioins={{title: 'Welcome'}}/>
+  
+//       <Stack.Screen name="Input" component={{ProfileScreen}} />
+//       </Stack.Navigator>
+//     </NavigationContainer>
+//   );
+// };
+
+
+// const HomeScreen = ({navigation}) => {
+//   return (
+
+//   );
+// };
+
+const inputWindow = () => {
+  return (
+    <Dialog.Container>
+    <Dialog.Title> Account </Dialog.Title>
+    <Dialog.Description>
+      What do you want to eat?
+    </Dialog.Description>
+    <Dialog.Button label="Cancel" />
+    <Dialog.Button label="Delete" />
+    </Dialog.Container>
+  );
+};
+
 
 export default function App() {
+  const [visible, setVisible] = React.useState(false)
+  const [input, setInput] = React.useState('');
+
   return (
     
-    <NavigationContainer>
     
-     {/* The main view container */}
 
     <View style={styles.container}>
      
@@ -22,6 +66,15 @@ export default function App() {
       <Text style={[textStyles.headline, {marginTop: 15}]}>What's 4 Dinner?</Text>
       </View>
 
+        <DialogInput
+          isDialogVisible={visible}
+          title={"Feedback"}
+          message={"Message for feedback"}
+          hintInput={"Enter Text"}
+          submitInput={ (inputText) => {
+            
+          }}
+
       {/* This container holds the days of the week */}
       <View style={[styles.container, {backgroundColor: '#2E4052', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', 
       flexWrap: 'wrap', alignContent: 'center', }]}>
@@ -29,21 +82,25 @@ export default function App() {
         <TouchableHighlight onPress={() => [ console.log("Something"),Alert.alert("Monday's Meal", "What meal do you want to have on Monday?", [
           {text: "Save"},
           {text: "Exit"}
-        ])]}>
-
+        ])]}> 
         <View
         style={ days.container }>
         <Text style={textStyles.dayName}>Monday</Text>
         </View>
         </TouchableHighlight>
 
+        <TouchableHighlight onPress={() => console.log("Tuesday")}>
         <View style={days.container }>
           <Text style={textStyles.dayName}>Tuesday</Text>
         </View>
+        </TouchableHighlight>
 
+
+        <TouchableHighlight onPress={inputWindow}>
         <View style={days.container }>
           <Text style={textStyles.dayName}>Wednesday</Text>
         </View>
+       </TouchableHighlight>
 
         <View style={days.container }>
           <Text style={textStyles.dayName}>Thursday</Text>
@@ -61,10 +118,23 @@ export default function App() {
           <Text style={textStyles.dayName}>Sunday</Text>
         </View>
         
+
+         {/* <Dialog.Container>
+    <Dialog.Title> Account </Dialog.Title>
+    <Dialog.Description>
+      What do you want to eat?
+    </Dialog.Description>
+    <Dialog.Button label="Cancel" />
+    <Dialog.Button label="Delete" />
+    </Dialog.Container> */}
+
+
       </View>
       <StatusBar style="auto" />
     </View>
-    </NavigationContainer>
+
+    
+    
   );
  
 }
