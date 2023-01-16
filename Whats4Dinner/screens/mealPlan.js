@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function MainScreen(props) {
+function mealPlan(props) {
     return (
         
     );

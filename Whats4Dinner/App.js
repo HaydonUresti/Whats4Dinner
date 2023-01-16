@@ -1,8 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
-import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableHighlight, Alert } from 'react-native';
-import DialogInput from "react-native-dialog"
+import Dialog from "react-native-dialog"
 
 
 
@@ -46,9 +45,6 @@ const inputWindow = () => {
 
 
 export default function App() {
-  const [visible, setVisible] = React.useState(false)
-  const [input, setInput] = React.useState('');
-
   return (
     
     
@@ -65,15 +61,6 @@ export default function App() {
       <View style={[styles.container, {backgroundColor: '#EE6C4D', flex: 0.08, justifyContent: 'center',}]}>
       <Text style={[textStyles.headline, {marginTop: 15}]}>What's 4 Dinner?</Text>
       </View>
-
-        <DialogInput
-          isDialogVisible={visible}
-          title={"Feedback"}
-          message={"Message for feedback"}
-          hintInput={"Enter Text"}
-          submitInput={ (inputText) => {
-            
-          }}
 
       {/* This container holds the days of the week */}
       <View style={[styles.container, {backgroundColor: '#2E4052', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', 
@@ -119,14 +106,14 @@ export default function App() {
         </View>
         
 
-         {/* <Dialog.Container>
+         <Dialog.Container>
     <Dialog.Title> Account </Dialog.Title>
     <Dialog.Description>
       What do you want to eat?
     </Dialog.Description>
     <Dialog.Button label="Cancel" />
     <Dialog.Button label="Delete" />
-    </Dialog.Container> */}
+    </Dialog.Container>
 
 
       </View>
