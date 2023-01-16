@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableHighlight, Alert } from 'react-native';
 import Dialog from "react-native-dialog"
-
+import MealPlan from './screens/MealPlan';
 
 
 // // Creating a screen stack
@@ -43,11 +43,19 @@ const inputWindow = () => {
   );
 };
 
+let changeScreen=0
+console.log("var=", changeScreen)
 
 export default function App() {
+ 
+  if (changeScreen > 2)  {
+    console.log("Why the f!")
+    return <MealPlan/>
+  };
+
   return (
     
-    
+   
 
     <View style={styles.container}>
      
@@ -76,12 +84,13 @@ export default function App() {
         </View>
         </TouchableHighlight>
 
-        <TouchableHighlight onPress={() => console.log("Tuesday")}>
+        <TouchableHighlight onPress={() => [console.log("Tuesday"), changeScreen = changeScreen+1, console.log(changeScreen)]}>
         <View style={days.container }>
           <Text style={textStyles.dayName}>Tuesday</Text>
         </View>
         </TouchableHighlight>
 
+       
 
         <TouchableHighlight onPress={inputWindow}>
         <View style={days.container }>
@@ -123,8 +132,11 @@ export default function App() {
     
     
   );
- 
+
+  
 }
+
+
 
 const testingSheet = StyleSheet.create({
   color1: {
