@@ -1,7 +1,9 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableHighlight, Alert } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, View, TouchableHighlight, Alert, Modal} from 'react-native';
 import Dialog from "react-native-dialog"
+import MealNoteModal from '../components/MealNoteModal';
 // import MealPlan from './screens/MealPlan';
 
 
@@ -31,6 +33,8 @@ import Dialog from "react-native-dialog"
 // };
 
 const inputWindow = () => {
+
+   
     return (
       <Dialog.Container>
       <Dialog.Title> Account </Dialog.Title>
@@ -45,15 +49,22 @@ const inputWindow = () => {
 
 
 
-let changeScreen = 0;
+// let changeScreen = 0;
 
 function MainScreen() {
  
-  if (changeScreen > 2)  {
-    console.log("Why the f!")
-    return <MealPlan/>
-  };
+ // A piece of state to set the visibility of the modal (The modal is the note pop-up)
+ const [modalVisible, setModalVisible] = useState(false);
 
+
+
+//   if (changeScreen > 2)  {
+//     console.log("Why the f!")
+//     return <MealPlan/>
+//   };
+
+
+   // What is actually being returned. In this case it is the components of the main screen.
   return (
     
    
@@ -85,7 +96,7 @@ function MainScreen() {
         </View>
         </TouchableHighlight>
 
-        <TouchableHighlight onPress={() => [console.log("Tuesday"), changeScreen = changeScreen+1, console.log(changeScreen)]}>
+        <TouchableHighlight onPress={() => [console.log("Tuesday"), <MealNoteModal visible={true}/>]}>
         <View style={days.container }>
           <Text style={textStyles.dayName}>Tuesday</Text>
         </View>
@@ -93,7 +104,7 @@ function MainScreen() {
 
        
 
-        <TouchableHighlight onPress={inputWindow}>
+        <TouchableHighlight onPress={() => setModalVisible(true)}>
         <View style={days.container }>
           <Text style={textStyles.dayName}>Wednesday</Text>
         </View>
@@ -128,6 +139,7 @@ function MainScreen() {
 
       </View>
       <StatusBar style="auto" />
+      <MealNoteModal visible={modalVisible} onClose={() => setModalVisible(false)}/>
     </View>
 
     

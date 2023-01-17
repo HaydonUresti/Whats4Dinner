@@ -6,6 +6,8 @@ import Dialog from "react-native-dialog"
 
 
 const inputWindow = () => {
+    const [modalVisible, setModalVisible] = useState(false);
+
     return (
       <Dialog.Container>
       <Dialog.Title> Account </Dialog.Title>
@@ -21,7 +23,7 @@ const inputWindow = () => {
 function MealPlan() {
     return (
         <View style={styles.container}>
-            
+
         </View>
      
     
