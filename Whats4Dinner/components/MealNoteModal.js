@@ -4,7 +4,9 @@ import { View, StyleSheet, Modal, Text, TextInput, Button} from 'react-native';
 import { useState } from 'react';
 
 
-// A method that 
+// A method that contains the code of the pop-up modal (screen)
+// Parameters: visible: Whether or not the modal is currently visible and interactive to the user
+//             onClose: This contains the vlau
 const MealNoteModal = ({visible, onClose}) => {
 
     // Creating state to hold the values given in the meal note.
@@ -44,7 +46,9 @@ const MealNoteModal = ({visible, onClose}) => {
                 <TextInput value={MealDescription} multiline placeholder='Notes' style={[styles.input, styles.description]} onChangeText={(text) => handleTextChange(text, 'MealDescription')}></TextInput>
             
             <Button title='Save Note' onPress={doSubmit} />
+            <View style={styles.space}/>
             <Button title='Exit' color='gold' onPress={doExit}/>
+            <View style={styles.space}/>
             <Button title='Discard Note' color='red' onPress={doDiscard}/>
 
             
@@ -75,6 +79,9 @@ const styles = StyleSheet.create({
         marginBottom: 20
 
     },
+    space: {
+        marginTop: 20,
+    }
 })
 
 export default MealNoteModal;

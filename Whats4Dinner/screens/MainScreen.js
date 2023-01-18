@@ -8,21 +8,6 @@ import MealNoteModal from '../components/MealNoteModal';
 
 
 
-// const inputWindow = () => {
-
-   
-//     return (
-//       <Dialog.Container>
-//       <Dialog.Title> Account </Dialog.Title>
-//       <Dialog.Description>
-//         What do you want to eat?
-//       </Dialog.Description>
-//       <Dialog.Button label="Cancel" />
-//       <Dialog.Button label="Delete" />
-//       </Dialog.Container>
-//     );
-//   };
-
 
 
 
@@ -32,6 +17,7 @@ import MealNoteModal from '../components/MealNoteModal';
 function MainScreen() {
  
  // A piece of state to set the visibility of the modal (The modal is the note pop-up)
+ // It is initially set to false so that the modal does not immediately appear on screen.
  const [modalVisible, setModalVisible] = useState(false);
 
  
@@ -41,10 +27,7 @@ function MainScreen() {
 
     <View style={styles.container}>
      
-        {/* <View style={{
-          backgroundColor: "dodgerblue",
-          flex: 1
-        }}/> */}
+
      
 
       <View style={[styles.container, {backgroundColor: '#EE6C4D', flex: 0.08, justifyContent: 'center',}]}>
@@ -58,6 +41,7 @@ function MainScreen() {
 
 
         {/* MONDAY */}
+        {/* Giving SetModalVisible the value true will make the modal pop up as its visibility is set to true */}
         <TouchableHighlight onPress={() => setModalVisible(true)}> 
         <View
         style={ days.container }>
@@ -67,7 +51,7 @@ function MainScreen() {
 
 
         {/* TUESDAY */}
-        <TouchableHighlight onPress={() => [console.log("Tuesday"), <MealNoteModal visible={true}/>]}>
+        <TouchableHighlight onPress={() => setModalVisible(true)}>
         <View style={days.container }>
           <Text style={textStyles.dayName}>Tuesday</Text>
         </View>
@@ -82,48 +66,46 @@ function MainScreen() {
        </TouchableHighlight>
 
         {/* THURSDAY */}
+        <TouchableHighlight onPress={() => setModalVisible(true)}>
         <View style={days.container }>
           <Text style={textStyles.dayName}>Thursday</Text>
         </View>
+        </TouchableHighlight>
 
         {/* FRIDAY */}
+        <TouchableHighlight onPress={() => setModalVisible(true)}>
         <View style={days.container }>
           <Text style={textStyles.dayName}>Friday</Text>
         </View>
+        </TouchableHighlight>
 
 
         {/* SATURDAY */}
+        <TouchableHighlight onPress={() => setModalVisible(true)}>
         <View style={days.container }>
           <Text style={textStyles.dayName}>Saturday</Text>
         </View>
+        </TouchableHighlight>
 
 
         {/* SUNDAY */}
+        <TouchableHighlight onPress={() => setModalVisible(true)}>
         <View style={days.sundayContainer }>
           <Text style={textStyles.dayName}>Sunday</Text>
         </View>
-        
-
-         <Dialog.Container>
-    <Dialog.Title> Account </Dialog.Title>
-    <Dialog.Description>
-      What do you want to eat?
-    </Dialog.Description>
-    <Dialog.Button label="Cancel" />
-    <Dialog.Button label="Delete" />
-    </Dialog.Container>
+        </TouchableHighlight>
 
 
       </View>
       <StatusBar style="auto" />
+
+      {/* Calling the modal and setting its visibility to false when the onClose function is called.  */}
       <MealNoteModal visible={modalVisible} onClose={() => setModalVisible(false)}/>
     </View>
 
     
     
   );
-
-  
 }
 
 
@@ -174,4 +156,3 @@ const textStyles = StyleSheet.create({
 // The export statement allowing the MainScreen function to be called elsewhere. 
 export default MainScreen;
 
-// the styles variable is kind of acting like a class. And the itmes under it like container are like the methods that can be called on the class.
