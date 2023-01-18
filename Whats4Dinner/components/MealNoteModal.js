@@ -16,10 +16,21 @@ const MealNoteModal = ({visible, onClose}) => {
     const doSubmit = () => {
         if(!MealTitle.trim()) return onClose();
     }
+    
+
+    // A function that clears all content in a meal note.
+    // Parameters: None
+    // Returns: None
+
+    const doDiscard = () => {
+        setTitle('')
+        setDesc('')
+    }
 
     const doExit = () => {
-        if(!MealTitle.trim()) return onClose();
-    }
+        doDiscard
+        return onClose();
+    };
 
     const handleTextChange = (text, valueFor) => {
         if(valueFor === 'MealTitle') setTitle(text);
@@ -29,11 +40,12 @@ const MealNoteModal = ({visible, onClose}) => {
         return (
             <Modal visible={visible} animationType='slide'>
                 <View style={styles.container}>
-                <TextInput value={MealTitle} placeholder='Meal' style={[styles.input, styles.title]} onChangeText={(text) => handleTextChange(text, 'Mealtitle')}></TextInput>
+                <TextInput value={MealTitle} placeholder='Meal' style={[styles.input, styles.title]} onChangeText={(text) => handleTextChange(text, 'MealTitle')}></TextInput>
                 <TextInput value={MealDescription} multiline placeholder='Notes' style={[styles.input, styles.description]} onChangeText={(text) => handleTextChange(text, 'MealDescription')}></TextInput>
             
             <Button title='Save Note' onPress={doSubmit} />
-            <Button title='Discard Note' color='red' onPress={doExit}/>
+            <Button title='Exit' color='gold' onPress={doExit}/>
+            <Button title='Discard Note' color='red' onPress={doDiscard}/>
 
             
                 </View>
@@ -42,6 +54,8 @@ const MealNoteModal = ({visible, onClose}) => {
         )
     }
 
+
+    // A style sheet containing the styles used by the text input fields.
 const styles = StyleSheet.create({
     input: {
         borderBottomWidth: 3,
@@ -61,10 +75,6 @@ const styles = StyleSheet.create({
         marginBottom: 20
 
     },
-    buttonStyle: {
-        marginBottom: 10,
-        color: 'orange'
-    }
 })
 
 export default MealNoteModal;

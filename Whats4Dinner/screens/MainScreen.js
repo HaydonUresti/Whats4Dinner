@@ -46,7 +46,6 @@ function MainScreen() {
           flex: 1
         }}/> */}
      
-      {/* make a view to hold the app title containing the  */}
 
       <View style={[styles.container, {backgroundColor: '#EE6C4D', flex: 0.08, justifyContent: 'center',}]}>
       <Text style={[textStyles.headline, {marginTop: 15}]}>What's 4 Dinner?</Text>
@@ -56,16 +55,18 @@ function MainScreen() {
       <View style={[styles.container, {backgroundColor: '#2E4052', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', 
       flexWrap: 'wrap', alignContent: 'center', }]}>
         
-        <TouchableHighlight onPress={() => [ console.log("Something"),Alert.alert("Monday's Meal", "What meal do you want to have on Monday?", [
-          {text: "Save"},
-          {text: "Exit"}
-        ])]}> 
+
+
+        {/* MONDAY */}
+        <TouchableHighlight onPress={() => setModalVisible(true)}> 
         <View
         style={ days.container }>
         <Text style={textStyles.dayName}>Monday</Text>
         </View>
         </TouchableHighlight>
 
+
+        {/* TUESDAY */}
         <TouchableHighlight onPress={() => [console.log("Tuesday"), <MealNoteModal visible={true}/>]}>
         <View style={days.container }>
           <Text style={textStyles.dayName}>Tuesday</Text>
@@ -73,25 +74,31 @@ function MainScreen() {
         </TouchableHighlight>
 
        
-
+        {/* WEDNESDAY */}
         <TouchableHighlight onPress={() => setModalVisible(true)}>
         <View style={days.container }>
           <Text style={textStyles.dayName}>Wednesday</Text>
         </View>
        </TouchableHighlight>
 
+        {/* THURSDAY */}
         <View style={days.container }>
           <Text style={textStyles.dayName}>Thursday</Text>
         </View>
 
+        {/* FRIDAY */}
         <View style={days.container }>
           <Text style={textStyles.dayName}>Friday</Text>
         </View>
 
+
+        {/* SATURDAY */}
         <View style={days.container }>
           <Text style={textStyles.dayName}>Saturday</Text>
         </View>
 
+
+        {/* SUNDAY */}
         <View style={days.sundayContainer }>
           <Text style={textStyles.dayName}>Sunday</Text>
         </View>
