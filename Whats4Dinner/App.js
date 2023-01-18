@@ -5,36 +5,11 @@ import Dialog from "react-native-dialog"
 import MealPlan from './screens/MealPlan';
 import MainScreen from './screens/MainScreen';
 
-// // Creating a screen stack
-// const Stack = createNativeStackNavigator();
 
-// const screenNavigator = () => {
-//   return (
-//     <NavigationContainer>
-//       <Stack.Navigator>
-//         <Stack.Screen
-//         name="Main"
-//         component={HomeScreen}
-//         optioins={{title: 'Welcome'}}/>
-  
-//       <Stack.Screen name="Input" component={{ProfileScreen}} />
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// };
-
-
-// const HomeScreen = ({navigation}) => {
-//   return (
-
-//   );
-// };
-
-
-
-export default function App() {
- 
-  
+// The Main function of the App. This function calls the app's main screen.
+//Parameters: None
+//Returns: MainScreen
+export default function App() { 
 
   return (
     

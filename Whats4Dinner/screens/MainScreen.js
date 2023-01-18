@@ -7,64 +7,34 @@ import MealNoteModal from '../components/MealNoteModal';
 // import MealPlan from './screens/MealPlan';
 
 
-// // Creating a screen stack
-// const Stack = createNativeStackNavigator();
 
-// const screenNavigator = () => {
-//   return (
-//     <NavigationContainer>
-//       <Stack.Navigator>
-//         <Stack.Screen
-//         name="Main"
-//         component={HomeScreen}
-//         optioins={{title: 'Welcome'}}/>
-  
-//       <Stack.Screen name="Input" component={{ProfileScreen}} />
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// };
-
-
-// const HomeScreen = ({navigation}) => {
-//   return (
-
-//   );
-// };
-
-const inputWindow = () => {
+// const inputWindow = () => {
 
    
-    return (
-      <Dialog.Container>
-      <Dialog.Title> Account </Dialog.Title>
-      <Dialog.Description>
-        What do you want to eat?
-      </Dialog.Description>
-      <Dialog.Button label="Cancel" />
-      <Dialog.Button label="Delete" />
-      </Dialog.Container>
-    );
-  };
+//     return (
+//       <Dialog.Container>
+//       <Dialog.Title> Account </Dialog.Title>
+//       <Dialog.Description>
+//         What do you want to eat?
+//       </Dialog.Description>
+//       <Dialog.Button label="Cancel" />
+//       <Dialog.Button label="Delete" />
+//       </Dialog.Container>
+//     );
+//   };
 
 
 
-// let changeScreen = 0;
 
+// The funciton that contains the main screen of the app with its fucntions.
+//Parameters: None
+//Returns: The tags and components of the main screen.
 function MainScreen() {
  
  // A piece of state to set the visibility of the modal (The modal is the note pop-up)
  const [modalVisible, setModalVisible] = useState(false);
 
-
-
-//   if (changeScreen > 2)  {
-//     console.log("Why the f!")
-//     return <MealPlan/>
-//   };
-
-
-   // What is actually being returned. In this case it is the components of the main screen.
+ 
   return (
     
    
@@ -150,15 +120,7 @@ function MainScreen() {
 }
 
 
-
-const testingSheet = StyleSheet.create({
-  color1: {
-    backgroundColor: 'red'
-  }
-})
-
-
-
+// A style sheet defining the styles used by the day containers. 
 const days = StyleSheet.create({
   container:  {
     width: 80,
@@ -174,6 +136,8 @@ const days = StyleSheet.create({
   }
 })
 
+
+// A style sheet defining the styles used generally by containers.
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -183,6 +147,7 @@ const styles = StyleSheet.create({
   },
 })
 
+// A style sheet defining the styles affecting text.
 const textStyles = StyleSheet.create({
   centerText: {
     textAlign: 'center',
@@ -199,7 +164,7 @@ const textStyles = StyleSheet.create({
   
 })
 
-
+// The export statement allowing the MainScreen function to be called elsewhere. 
 export default MainScreen;
 
 // the styles variable is kind of acting like a class. And the itmes under it like container are like the methods that can be called on the class.
