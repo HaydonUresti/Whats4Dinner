@@ -5,9 +5,9 @@ import { useState } from 'react';
 
 
 // A method that contains the code of the pop-up modal (screen)
-// Parameters: visible: Whether or not the modal is currently visible and interactive to the user
-//             onClose: This contains the vlau
-const MealNoteModal = ({visible, onClose}) => {
+// Parameters: visible: Whether or not the modal is currently visible and interactive to the user.
+//             onClose: This is used to hold the current value of the modal's visibility, in order to change it.
+const MealNoteModal = ({visible, whatDay, onClose, onSubmit}) => {
 
     // Creating state to hold the values given in the meal note.
     const [MealTitle, setTitle] = useState('');
@@ -17,20 +17,31 @@ const MealNoteModal = ({visible, onClose}) => {
     // Parameters: None
     const doSubmit = () => {
         if(!MealTitle.trim()) return onClose();
+        console.log(whatDay, MealTitle, MealDescription);
+        onSubmit(whatDay, MealTitle, MealDescription)
+        setTitle('')
+        setDesc('')
+        onClose()
     }
     
+
+
+
+    // If day = "Monday":
+    //     title = inputted text(.Monday?)   (have completely seperate states, vars or save places for each day?) 
+    //     note = inputed note(.Monday?)        
 
     // A function that clears all content in a meal note.
     // Parameters: None
     // Returns: None
 
-    const doDiscard = () => {
+    const doClear = () => {
         setTitle('')
         setDesc('')
     }
 
     const doExit = () => {
-        doDiscard
+        doClear
         return onClose();
     };
 
@@ -42,6 +53,7 @@ const MealNoteModal = ({visible, onClose}) => {
         return (
             <Modal visible={visible} animationType='slide'>
                 <View style={styles.container}>
+                    <Text>{whatDay}'s meal</Text>
                 <TextInput value={MealTitle} placeholder='Meal' style={[styles.input, styles.title]} onChangeText={(text) => handleTextChange(text, 'MealTitle')}></TextInput>
                 <TextInput value={MealDescription} multiline placeholder='Notes' style={[styles.input, styles.description]} onChangeText={(text) => handleTextChange(text, 'MealDescription')}></TextInput>
             
@@ -49,7 +61,7 @@ const MealNoteModal = ({visible, onClose}) => {
             <View style={styles.space}/>
             <Button title='Exit' color='gold' onPress={doExit}/>
             <View style={styles.space}/>
-            <Button title='Discard Note' color='red' onPress={doDiscard}/>
+            <Button title='Clear Note' color='red' onPress={doClear}/>
 
             
                 </View>

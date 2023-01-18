@@ -19,8 +19,13 @@ function MainScreen() {
  // A piece of state to set the visibility of the modal (The modal is the note pop-up)
  // It is initially set to false so that the modal does not immediately appear on screen.
  const [modalVisible, setModalVisible] = useState(false);
-
+ const [dayUsed, setModalDay] = useState('')
  
+ const submitMeal = (whatDay, MealTitle, MealDescription) => {
+   console.log(whatDay, MealTitle, MealDescription);
+ }
+
+
   return (
     
    
@@ -42,7 +47,8 @@ function MainScreen() {
 
         {/* MONDAY */}
         {/* Giving SetModalVisible the value true will make the modal pop up as its visibility is set to true */}
-        <TouchableHighlight onPress={() => setModalVisible(true)}> 
+        {/* <TouchableHighlight onPress={() => setModalVisible(true)}>  */}
+        <TouchableHighlight onPress={() => [setModalDay('Monday') ,setModalVisible(true)]}> 
         <View
         style={ days.container }>
         <Text style={textStyles.dayName}>Monday</Text>
@@ -51,7 +57,7 @@ function MainScreen() {
 
 
         {/* TUESDAY */}
-        <TouchableHighlight onPress={() => setModalVisible(true)}>
+        <TouchableHighlight onPress={() => [setModalDay('Tuesday') ,setModalVisible(true)]}> 
         <View style={days.container }>
           <Text style={textStyles.dayName}>Tuesday</Text>
         </View>
@@ -59,21 +65,21 @@ function MainScreen() {
 
        
         {/* WEDNESDAY */}
-        <TouchableHighlight onPress={() => setModalVisible(true)}>
+        <TouchableHighlight onPress={() => [setModalDay('Wednesday') ,setModalVisible(true)]}> 
         <View style={days.container }>
           <Text style={textStyles.dayName}>Wednesday</Text>
         </View>
        </TouchableHighlight>
 
         {/* THURSDAY */}
-        <TouchableHighlight onPress={() => setModalVisible(true)}>
+        <TouchableHighlight onPress={() => [setModalDay('Thursday') ,setModalVisible(true)]}> 
         <View style={days.container }>
           <Text style={textStyles.dayName}>Thursday</Text>
         </View>
         </TouchableHighlight>
 
         {/* FRIDAY */}
-        <TouchableHighlight onPress={() => setModalVisible(true)}>
+        <TouchableHighlight onPress={() => [setModalDay('Friday') ,setModalVisible(true)]}> 
         <View style={days.container }>
           <Text style={textStyles.dayName}>Friday</Text>
         </View>
@@ -81,7 +87,7 @@ function MainScreen() {
 
 
         {/* SATURDAY */}
-        <TouchableHighlight onPress={() => setModalVisible(true)}>
+        <TouchableHighlight onPress={() => [setModalDay('Saturday') ,setModalVisible(true)]}> 
         <View style={days.container }>
           <Text style={textStyles.dayName}>Saturday</Text>
         </View>
@@ -89,7 +95,7 @@ function MainScreen() {
 
 
         {/* SUNDAY */}
-        <TouchableHighlight onPress={() => setModalVisible(true)}>
+        <TouchableHighlight onPress={() => [setModalDay('Sunday') ,setModalVisible(true)]}> 
         <View style={days.sundayContainer }>
           <Text style={textStyles.dayName}>Sunday</Text>
         </View>
@@ -100,7 +106,7 @@ function MainScreen() {
       <StatusBar style="auto" />
 
       {/* Calling the modal and setting its visibility to false when the onClose function is called.  */}
-      <MealNoteModal visible={modalVisible} onClose={() => setModalVisible(false)}/>
+      <MealNoteModal visible={modalVisible} whatDay={dayUsed} onClose={() => setModalVisible(false)} onSubmit={submitMeal}/>
     </View>
 
     
