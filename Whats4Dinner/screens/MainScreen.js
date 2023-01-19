@@ -4,7 +4,13 @@ import { useState } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, Alert, Modal} from 'react-native';
 import Dialog from "react-native-dialog"
 import MealNoteModal from '../components/MealNoteModal';
-// import MealPlan from './screens/MealPlan';
+import TuesdayMealNoteModal from '../components/TuesdayNoteModal';
+import WednesdayMealNoteModal from '../components/WednesdayMealNoteModal';
+import ThursdayMealNoteModal from '../components/ThursdayMealNoteModal';
+import FridayMealNoteModal from '../components/FridayMealNoteModal';
+import SaturdayMealNoteModal from '../components/SaturdayMealNoteModal';
+import SundayMealNoteModal from '../components/SundayMealNoteModal';
+
 
 
 
@@ -20,6 +26,14 @@ function MainScreen() {
  // It is initially set to false so that the modal does not immediately appear on screen.
  const [modalVisible, setModalVisible] = useState(false);
  const [dayUsed, setModalDay] = useState('')
+ 
+ const [TuesdayModalVisible, tuesdaySetModalVisible] = useState(false)
+
+ const [WednesdayModalVisible, wednesdaySetModalVisible] = useState(false)
+ const [ThursdayModalVisible, thursdaySetModalVisible] = useState(false)
+ const [FridayModalVisible, fridaySetModalVisible] = useState(false)
+ const [SaturdayModalVisible, saturdaySetModalVisible] = useState(false)
+ const [SundayModalVisible, sundaySetModalVisible] = useState(false)
  
  const submitMeal = (whatDay, MealTitle, MealDescription) => {
    console.log(whatDay, MealTitle, MealDescription);
@@ -57,7 +71,7 @@ function MainScreen() {
 
 
         {/* TUESDAY */}
-        <TouchableHighlight onPress={() => [setModalDay('Tuesday') ,setModalVisible(true)]}> 
+        <TouchableHighlight onPress={() => [setModalDay('Tuesday') ,tuesdaySetModalVisible(true)]}> 
         <View style={days.container }>
           <Text style={textStyles.dayName}>Tuesday</Text>
         </View>
@@ -65,21 +79,21 @@ function MainScreen() {
 
        
         {/* WEDNESDAY */}
-        <TouchableHighlight onPress={() => [setModalDay('Wednesday') ,setModalVisible(true)]}> 
+        <TouchableHighlight onPress={() => [setModalDay('Wednesday') ,wednesdaySetModalVisible(true)]}> 
         <View style={days.container }>
           <Text style={textStyles.dayName}>Wednesday</Text>
         </View>
        </TouchableHighlight>
 
         {/* THURSDAY */}
-        <TouchableHighlight onPress={() => [setModalDay('Thursday') ,setModalVisible(true)]}> 
+        <TouchableHighlight onPress={() => [setModalDay('Thursday') ,thursdaySetModalVisible(true)]}> 
         <View style={days.container }>
           <Text style={textStyles.dayName}>Thursday</Text>
         </View>
         </TouchableHighlight>
 
         {/* FRIDAY */}
-        <TouchableHighlight onPress={() => [setModalDay('Friday') ,setModalVisible(true)]}> 
+        <TouchableHighlight onPress={() => [setModalDay('Friday') ,fridaySetModalVisible(true)]}> 
         <View style={days.container }>
           <Text style={textStyles.dayName}>Friday</Text>
         </View>
@@ -87,7 +101,7 @@ function MainScreen() {
 
 
         {/* SATURDAY */}
-        <TouchableHighlight onPress={() => [setModalDay('Saturday') ,setModalVisible(true)]}> 
+        <TouchableHighlight onPress={() => [setModalDay('Saturday') ,saturdaySetModalVisible(true)]}> 
         <View style={days.container }>
           <Text style={textStyles.dayName}>Saturday</Text>
         </View>
@@ -95,7 +109,7 @@ function MainScreen() {
 
 
         {/* SUNDAY */}
-        <TouchableHighlight onPress={() => [setModalDay('Sunday') ,setModalVisible(true)]}> 
+        <TouchableHighlight onPress={() => [setModalDay('Sunday') ,sundaySetModalVisible(true)]}> 
         <View style={days.sundayContainer }>
           <Text style={textStyles.dayName}>Sunday</Text>
         </View>
@@ -107,6 +121,16 @@ function MainScreen() {
 
       {/* Calling the modal and setting its visibility to false when the onClose function is called.  */}
       <MealNoteModal visible={modalVisible} whatDay={dayUsed} onClose={() => setModalVisible(false)} onSubmit={submitMeal}/>
+      <TuesdayMealNoteModal visible={TuesdayModalVisible} whatDay={dayUsed} onClose={() => tuesdaySetModalVisible(false)} onSubmit={submitMeal}/>
+      <WednesdayMealNoteModal visible={WednesdayModalVisible} whatDay={dayUsed} onClose={() => wednesdaySetModalVisible(false)} onSubmit={submitMeal}/>
+      <ThursdayMealNoteModal visible={ThursdayModalVisible} whatDay={dayUsed} onClose={() => thursdaySetModalVisible(false)} onSubmit={submitMeal}/>
+      <FridayMealNoteModal visible={FridayModalVisible} whatDay={dayUsed} onClose={() => fridaySetModalVisible(false)} onSubmit={submitMeal}/>
+      <SaturdayMealNoteModal visible={SaturdayModalVisible} whatDay={dayUsed} onClose={() => saturdaySetModalVisible(false)} onSubmit={submitMeal}/>
+      <SundayMealNoteModal visible={SundayModalVisible} whatDay={dayUsed} onClose={() => sundaySetModalVisible(false)} onSubmit={submitMeal}/>
+    
+    
+    
+    
     </View>
 
     

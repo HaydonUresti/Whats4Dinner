@@ -7,7 +7,7 @@ import { useState } from 'react';
 // A method that contains the code of the pop-up modal (screen)
 // Parameters: visible: Whether or not the modal is currently visible and interactive to the user.
 //             onClose: This is used to hold the current value of the modal's visibility, in order to change it.
-const MealNoteModal = ({visible, whatDay, onClose, onSubmit}) => {
+const SaturdayMealNoteModal = ({visible, whatDay, onClose, onSubmit}) => {
 
     // Creating state to hold the values given in the meal note.
     const [MealTitle, setTitle] = useState('');
@@ -90,4 +90,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default MealNoteModal;
+export default SaturdayMealNoteModal;
