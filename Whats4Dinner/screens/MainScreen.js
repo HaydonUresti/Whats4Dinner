@@ -1,9 +1,7 @@
-import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, Alert, Modal} from 'react-native';
-import Dialog from "react-native-dialog"
-import MealNoteModal from '../components/MealNoteModal';
+import { StyleSheet, Text, View, TouchableHighlight, Modal} from 'react-native';
+import MondayMealNoteModal from '../components/MondayMealNoteModal';
 import TuesdayMealNoteModal from '../components/TuesdayNoteModal';
 import WednesdayMealNoteModal from '../components/WednesdayMealNoteModal';
 import ThursdayMealNoteModal from '../components/ThursdayMealNoteModal';
@@ -13,40 +11,35 @@ import SundayMealNoteModal from '../components/SundayMealNoteModal';
 
 
 
-
-
-
-
-// The funciton that contains the main screen of the app with its fucntions.
+// The funciton that contains the main screen of the app with its functions.
 //Parameters: None
 //Returns: The tags and components of the main screen.
 function MainScreen() {
  
- // A piece of state to set the visibility of the modal (The modal is the note pop-up)
- // It is initially set to false so that the modal does not immediately appear on screen.
- const [modalVisible, setModalVisible] = useState(false);
- const [dayUsed, setModalDay] = useState('')
- 
- const [TuesdayModalVisible, tuesdaySetModalVisible] = useState(false)
 
+ // Declaring state to set the visibility of the modals (A modal is the note pop-up)
+ // They are initially set to false so that the modals do not immediately appear on screen.
+ const [MondayModalVisible, mondaySetModalVisible] = useState(false);
+ const [TuesdayModalVisible, tuesdaySetModalVisible] = useState(false)
  const [WednesdayModalVisible, wednesdaySetModalVisible] = useState(false)
  const [ThursdayModalVisible, thursdaySetModalVisible] = useState(false)
  const [FridayModalVisible, fridaySetModalVisible] = useState(false)
  const [SaturdayModalVisible, saturdaySetModalVisible] = useState(false)
  const [SundayModalVisible, sundaySetModalVisible] = useState(false)
+
+// Declaring state to hold the value of the day that was selected.
+ const [dayUsed, setModalDay] = useState('')
  
+
  const submitMeal = (whatDay, MealTitle, MealDescription) => {
-   console.log(whatDay, MealTitle, MealDescription);
- }
+   console.log("The day being saved: " + whatDay + "The title of the meal: " + MealTitle + "The description: " + MealDescription);
+ };
 
 
   return (
     
-   
 
     <View style={styles.container}>
-     
-
      
 
       <View style={[styles.container, {backgroundColor: '#EE6C4D', flex: 0.08, justifyContent: 'center',}]}>
@@ -61,14 +54,12 @@ function MainScreen() {
 
         {/* MONDAY */}
         {/* Giving SetModalVisible the value true will make the modal pop up as its visibility is set to true */}
-        {/* <TouchableHighlight onPress={() => setModalVisible(true)}>  */}
-        <TouchableHighlight onPress={() => [setModalDay('Monday') ,setModalVisible(true)]}> 
+        <TouchableHighlight onPress={() => [setModalDay('Monday') ,mondaySetModalVisible(true)]}> 
         <View
         style={ days.container }>
         <Text style={textStyles.dayName}>Monday</Text>
         </View>
         </TouchableHighlight>
-
 
         {/* TUESDAY */}
         <TouchableHighlight onPress={() => [setModalDay('Tuesday') ,tuesdaySetModalVisible(true)]}> 
@@ -77,7 +68,6 @@ function MainScreen() {
         </View>
         </TouchableHighlight>
 
-       
         {/* WEDNESDAY */}
         <TouchableHighlight onPress={() => [setModalDay('Wednesday') ,wednesdaySetModalVisible(true)]}> 
         <View style={days.container }>
@@ -99,14 +89,12 @@ function MainScreen() {
         </View>
         </TouchableHighlight>
 
-
         {/* SATURDAY */}
         <TouchableHighlight onPress={() => [setModalDay('Saturday') ,saturdaySetModalVisible(true)]}> 
         <View style={days.container }>
           <Text style={textStyles.dayName}>Saturday</Text>
         </View>
         </TouchableHighlight>
-
 
         {/* SUNDAY */}
         <TouchableHighlight onPress={() => [setModalDay('Sunday') ,sundaySetModalVisible(true)]}> 
@@ -120,7 +108,7 @@ function MainScreen() {
       <StatusBar style="auto" />
 
       {/* Calling the modal and setting its visibility to false when the onClose function is called.  */}
-      <MealNoteModal visible={modalVisible} whatDay={dayUsed} onClose={() => setModalVisible(false)} onSubmit={submitMeal}/>
+      <MondayMealNoteModal visible={MondayModalVisible} whatDay={dayUsed} onClose={() => mondaySetModalVisible(false)} onSubmit={submitMeal}/>
       <TuesdayMealNoteModal visible={TuesdayModalVisible} whatDay={dayUsed} onClose={() => tuesdaySetModalVisible(false)} onSubmit={submitMeal}/>
       <WednesdayMealNoteModal visible={WednesdayModalVisible} whatDay={dayUsed} onClose={() => wednesdaySetModalVisible(false)} onSubmit={submitMeal}/>
       <ThursdayMealNoteModal visible={ThursdayModalVisible} whatDay={dayUsed} onClose={() => thursdaySetModalVisible(false)} onSubmit={submitMeal}/>
@@ -129,14 +117,10 @@ function MainScreen() {
       <SundayMealNoteModal visible={SundayModalVisible} whatDay={dayUsed} onClose={() => sundaySetModalVisible(false)} onSubmit={submitMeal}/>
     
     
-    
-    
     </View>
 
-    
-    
   );
-}
+};
 
 
 // A style sheet defining the styles used by the day containers. 
@@ -153,7 +137,7 @@ const days = StyleSheet.create({
     backgroundColor: '#FFC857',
     margin: 10
   }
-})
+});
 
 
 // A style sheet defining the styles used generally by containers.
@@ -164,7 +148,7 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
     // justifyContent: 'center',
   },
-})
+});
 
 // A style sheet defining the styles affecting text.
 const textStyles = StyleSheet.create({
@@ -181,7 +165,7 @@ const textStyles = StyleSheet.create({
     fontWeight: 'bold'
   }
   
-})
+});
 
 // The export statement allowing the MainScreen function to be called elsewhere. 
 export default MainScreen;
