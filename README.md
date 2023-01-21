@@ -9,7 +9,7 @@ relating to the meal. This data is saved locally on your device in order to be v
 
 ### Use-
 
-In order to use the app, after downloading the source code and dependencies, download Expo Go on your Android phone. Then run the command 'expo start --tunnel' and follow the instruction that follow. Alternatively, open an Android emulator, run the same command as before, then enter the 'a' key into the terminal.
+In order to use the app, after downloading the source code and dependencies, download Expo Go on your Android phone. Then run the command 'expo start --tunnel' and follow the instruction that follow. Alternatively, to open on an Android emulator, run the same command as before, then enter the 'a' key into the terminal.
 
 When the app is opened click on the desired day to plan a meal for, and a note screen will appear. Enter what the meal is on the line that says 'Meal'. Then, if desired, enter notes relating to the meal. This could be instructions, needed ingredients, or anything else you would like!
 
