@@ -1,12 +1,18 @@
 # Whats4Dinner
 
-An app to help you keep track of what's for dinner this week.
+An app to help you keep track of what's for dinner the week.
 
 # Overview
 
 {Important! Do not say in this section that this is college assignment. Talk about what you are trying to accomplish as a software engineer to further your learning.}
 
 {Provide a description of your app. Describe how to use the app.}
+
+Whats4Dinner is a note app for dinner. It allows you to enter what the meal is, as well as a helpful note or description
+relating to the meal. This data is saved locally on your device in order to be viewable when re-opening the app.
+
+Use-
+In order to use the app, after downloading the source code and dependencies, download Expo Go on your phone. Then run the command 'expo start --tunnel' and follow the instruction that follow.
 
 {Describe your purpose for creating this app.}
 
