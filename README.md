@@ -27,8 +27,6 @@ My purpose in creating Whats4Dinner was to learn how to use React Native and exp
 
 # Development Environment
 
-{Describe the tools that you used to develop the app}
-
 - Visual Studio Code
 - Expo/Expo Go
 - Android Studio (for emulator)
