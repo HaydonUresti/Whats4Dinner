@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
     dayTitle: {
         alignContent: 'center',
         fontSize: 25,
-        marginHorizontal: 68,
+        textAlign: 'center',
         fontWeight: 'bold'
     }
 

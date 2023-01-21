@@ -1,15 +1,16 @@
 # Whats4Dinner
- An app to help you keep track of what's for dinner this week.
+
+An app to help you keep track of what's for dinner this week.
 
 # Overview
 
-{Important!  Do not say in this section that this is college assignment.  Talk about what you are trying to accomplish as a software engineer to further your learning.}
+{Important! Do not say in this section that this is college assignment. Talk about what you are trying to accomplish as a software engineer to further your learning.}
 
-{Provide a description of your app.  Describe how to use the app.}
+{Provide a description of your app. Describe how to use the app.}
 
 {Describe your purpose for creating this app.}
 
-{Provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the app running and a walkthrough of the code.}
+{Provide a link to your YouTube demonstration. It should be a 4-5 minute demo of the app running and a walkthrough of the code.}
 
 [Software Demo Video](http://youtube.link.goes.here)
 
@@ -22,12 +23,14 @@
 # Useful Websites
 
 {Make a list of websites that you found helpful in this project}
-* [Web Site Name](http://url.link.goes.here)
-* [Web Site Name](http://url.link.goes.here)
+
+- [React Native](https://reactnative.dev/docs/asyncstorage)
+- [jscrambler](https://blog.jscrambler.com/how-to-use-react-native-asyncstorage)
 
 # Future Work
 
 {Make a list of things that you need to fix, improve, and add in the future.}
-* Item 1
-* Item 2
-* Item 3
+
+- Enhance the ability to edit meal notes.
+- Implement a calendar into the app, displaying the dates for the week.
+- Item 3

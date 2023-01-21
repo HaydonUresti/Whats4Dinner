@@ -170,6 +170,7 @@ const styles = StyleSheet.create({
     },
     container: {
         paddingHorizontal: 20,
+        textAlign: 'center'
     },
     title: {
         height: 50,
@@ -187,8 +188,8 @@ const styles = StyleSheet.create({
     dayTitle: {
         alignContent: 'center',
         fontSize: 25,
-        marginHorizontal: 56,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        textAlign: 'center'
     }
 
 });
