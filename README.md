@@ -21,9 +21,7 @@ After you enter what you need, press SAVE NOTE, which will save data to your dev
 
 My purpose in creating Whats4Dinner was to learn how to use React Native and explore mobile app development, while creating something that would be useful to me.
 
-{Provide a link to your YouTube demonstration. It should be a 4-5 minute demo of the app running and a walkthrough of the code.}
-
-[Software Demo Video](http://youtube.link.goes.here)
+[Demo: Whats4Dinner](https://youtu.be/Rxt1QdFHRjA)
 
 # Development Environment
 
